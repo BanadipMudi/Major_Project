@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: orange;
+}
+
+.container {
+    margin-top: 250px;
+    margin-left: auto;
+}
+
+.container h1 {
+    font-weight: bolder;
+}
+
+.container p {
+    color: white;
+    font-weight: bolder;
+}
+
+.container  button {
+    margin-top: 15px;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    color: lawngreen;
+    border-radius: 30px;
+}
+input[type=email], input[type=password]{
+    border: 2px solid lawngreen;
+    /* box-sizing: border-box; */
+    border-radius: 12px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.but{
+    margin:0 100px;
+    padding: 8px 30px ;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background: lawngreen;
+    border-radius: 20px;
+    border: 1px solid lawngreen;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+.but:hover{
+    color: black;
+    background: lawngreen;
+     
+    
+}

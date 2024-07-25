@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+body{
+    background-color: orange;
+}
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        margin-top: 6%;
+        margin-left: 200px;
+}
+/* .cate{
+    border: 1px solid lawngreen;
+    border-radius: 18px;
+    font-weight: 500;
+    color: black;
+    background-color: lawngreen;
+    text-align: center;
+    font-size: 20px;
+    padding: 3px 14px;
+
+} */
+.choice{
+    padding: 8px 30px;
+    font-size: 20px;
+    text-align: center;
+    background-color: lawngreen;
+    color: black;
+    /* font-weight: bold; */
+    border: 1px solid lawngreen;
+}
+.cate-button{
+   
+    font-size: 20px;
+    padding: 5px 18px;
+    font-weight: 500;
+    
+    border: 1px solid lawngreen;
+    background-color: lawngreen;
+    color: black;
+}
+.cate-button:hover{
+    border: 1px solid lawngreen;
+    background-color: lawngreen;
+    color: blue;
+}

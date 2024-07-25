@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background: rgb(18, 146, 146); */
+}
+
+section {
+    background-image: linear-gradient(to right, #8360c3, #2ebf91);
+    height: 100%;
+}
+
+.custom-shape-divider-top-1679413864 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1679413864 svg {
+    position: relative;
+    display: block;
+    width: calc(300% + 1.3px);
+    height: 44px;
+}
+
+.custom-shape-divider-top-1679413864 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.bg-form2 {
+    background: black;
+}

@@ -1,0 +1,37 @@
+.comment{
+    position: relative;
+  border: 1px solid rgb(214, 214, 214);
+  border-left: 2px solid rgb(214, 214, 214);
+  border-top: 5px solid rgb(249, 113, 2);
+  
+  }
+  .bg-self-comment{
+      background-color:#e1e1e1;
+   }
+  .comment::before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color:  transparent rgb(214, 214, 214) transparent transparent;
+    
+  }
+  .status-massage{
+    position: fixed;
+    top:15px;
+    left:calc(50% - 25%);
+    box-shadow: 3px 3px 10px 0px #516CF8;
+  }
+  .error-alert,.success-alert{
+    position: fixed;
+    top:15px;
+    left:calc(50% - 25%);
+  }
+  .for-unfollowing{
+    background-image: url('https://media.istockphoto.com/id/1254770208/vector/portrait-of-young-man-woman-boy-with-question-mark-in-think-bubble-people-thinking-or.jpg?s=612x612&w=0&k=20&c=-9FHvQAB302VCdWbhFz1wWp4BlW23pRWyM5xGNgduZU=');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25%;
+  }

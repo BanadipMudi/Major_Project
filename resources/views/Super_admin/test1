@@ -1,0 +1,309 @@
+  $vll=$dtt['qusdata']->pluck('answer','user_id')->all(); 
+
+  @foreach($vll as $vl1=>$vl2)
+
+                        @php
+                        $nm1=$vl1;
+                        $nm=(int)$nm1;
+                            $i++;
+                        @endphp
+
+                        {!!$vl2!!} ---- <span id='<?php echo "usr".$i; ?>'></span>
+
+                        
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
+                            <script>
+                                $.ajax({
+                                    method:"GET",
+                                    url:'/gtuser/'+ <?php echo($nm) ?>,
+                                    success:function(data){
+                                    // console.log(data.res.name);
+                                    tt='usr'+<?php echo($i); ?>;
+                                    ele=document.querySelector('#'+tt);
+                                    // ele=document.getElementById("usr3");
+                                    ele.innerText=data.res.name;
+                                    // console.log(ele);
+                                        // console.log(data.res.name);
+                                    },
+                                    error:function(e){
+                                        console.log(e)
+                                    }
+                                });
+                            </script>
+
+                        @endforeach
+
+
+
+                        {{$dtt["user_name"]}}
+
+
+
+
+
+
+
+                        @php 
+                        $i=1;
+                    @endphp
+            @foreach($dt as $dtt)
+            <tr>
+            <td>{{$dtt['q_id']}}</td>
+            @php 
+                $aid="qususr".$dtt['user_id'];
+            @endphp
+            <td><u class='<?php echo $aid; ?>' onclick='mdl("<?php echo $aid;?>",<?php echo $dtt["user_id"];?>)'>{{$dtt["user_name"]}}</u>
+
+                             
+
+        </td>
+            <td class="answer2">{!!$dtt['question']!!}</td>
+            <td><h4>{{$dtt['like']}}</h4></td>
+            <!-- <td>{{$dtt['id']}}</td> -->
+            @php 
+            $cid="cat".$dtt['catagory_id'];
+
+            @endphp
+            <td class='<?php echo $cid; ?>'>{{$dtt["name"]}}</td>
+            <script>
+                               
+                               $.ajax({
+                                   method:"GET",
+                                   url:'/getcat/'+ <?php echo($dtt['catagory_id']) ?>,
+                                   success:function(data){
+                                   // console.log(data.res.name);
+                                   tt='cat'+<?php echo($dtt['catagory_id']); ?>;
+                                   ele=document.querySelectorAll('.'+tt);
+                                   // ele=document.getElementById("usr3");
+                                   ele.forEach(el=>{
+                                       el.innerText=data.res.name;
+                                   });
+                                   // ele.innerText=data.res.name;
+                                   },
+                                   error:function(e){
+                                       console.log(e)
+                                   }
+                               });
+                               </script>
+
+                     </td>
+          
+                        <td class="answer" >
+                            @php
+                                 $vlk=$dtt['qusdata']->toArray();
+                                 $j=0;
+                            @endphp
+                            @foreach($vlk as $vl1=>$vl2)
+                                
+                                @php 
+                                $idd=$vl2['user_id'];
+                                $i++;
+                                $j++;
+                                @endphp
+                       
+                               <?php echo "<br>Answer ".$j.". "; ?>   {!!$vl2['answer']!!} ---- <span class='<?php echo "ansusr".$idd; ?>' ></span>
+                                    
+                               <h4>,  Likes-  {{$vl2['like']}}</h4>
+                                     
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.2/datatables.min.js"></script>
+                            <script>
+                               
+                                $.ajax({
+                                    method:"GET",
+                                    url:'/gtuser/'+ <?php echo($idd) ?>,
+                                    success:function(data){
+                                    // console.log(data.res.name);
+                                    tt='ansusr'+<?php echo($idd); ?>;
+                                    ele=document.querySelectorAll('.'+tt);
+                                    // ele=document.getElementById("usr3");
+                                    ele.forEach(el=>{
+                                        el.innerText=data.res.user_name;
+                                    });
+                                    // ele.innerText=data.res.name;
+                                    },
+                                    error:function(e){
+                                        console.log(e)
+                                    }
+                                });
+                            </script>
+                                
+                                @endforeach
+
+                                 </td>
+
+                                 @php 
+                                    $ackid="bt".$dtt['id'];
+                                 @endphp
+                                 <td> <button class="btn btn-primary <?php echo $ackid; ?>" onclick="mk_adm('<?php echo $ackid;?>',<?php echo $dtt['u_id'];?>,'<?php echo $dtt['name'];?>',<?php echo $dtt['id'];?>)"> Make Admin </button> </td>  
+                                 <script>
+                                    var p_id={{
+                                        Js::from($dtt['prev_id'])
+                                    }};
+
+                                    var c_id={{
+                                        Js::from($dtt['id'])
+                                    }};
+
+                                    var ell={{
+                                        Js::from($ackid);
+                                    }};
+
+                                    var ell="."+ell;
+
+                                    if(p_id==c_id){
+                                        
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Previleged");
+                                        document.querySelectorAll(ell).forEach(el=>el.disabled=true);
+                                        
+                                    }
+                                    if(p_id==0){
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Make Admin");
+                                    }
+                                    // console.log(p_id,c_id);
+                                 </script>
+                                </tr>
+                                    @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+                                    var ht='';
+                                               if(dt.length >0){
+                                                for(let i=0;i<dt.length;i++){
+                                                    ht+="<tr>\
+                                                    <td>"+dt[i]['q_id']+"</td>\
+                                                    <td>"+dt[i]['user_name']+"</td>\
+                                                    <td>"+dt[i]['question']+"</td>\
+                                                    <td>"+dt[i]['like']+"</td>\
+                                                   <td>"+dt[i]['name']+"</td>\"
+                                                    </tr>"
+                                                    
+                                                }
+                                               } 
+                                               document.getElementById("tbd").innerHTML=ht;
+
+
+
+
+
+
+
+                                               <?php echo "<br>Answer ".$j.". "; ?>   {!!$vl2['answer']!!} ---- <span class='<?php echo "ansusr".$idd; ?>' ></span>
+                                    
+                               <h4>,  Likes-  {{$vl2['like']}}</h4>
+
+                                            <script>
+                                               $.ajax({
+                                    method:"GET",
+                                    url:'/gtuser/'+ ,
+                                    success:function(data){
+                                    // console.log(data.res.name);
+                                    tt='ansusr'+;
+                                    ele=document.querySelectorAll('.'+tt);
+                                    // ele=document.getElementById("usr3");
+                                    ele.forEach(el=>{
+                                        el.innerText=data.res.user_name;
+                                    });
+                                    // ele.innerText=data.res.name;
+                                    },
+                                    error:function(e){
+                                        console.log(e)
+                                    }
+                                });
+
+                                </script>
+
+
+
+
+<script>
+                                 var ubt="usbt"+document.getElementById('id2').innerText+document.getElementById('pvid2').value;
+                                 window.location.href= window.location.href+'?ubt='+ubt;
+                             </script>
+                              <?php
+                                $ubtt=$_GET['ubt'];
+                             ?>
+
+
+
+<script>
+                                    document.getElementById("adbt").innerText="Request send";
+                                    document.getElementById("adbt").disabled=true;
+
+                                    var p_id={{
+                                        Js::from($dtt['prev_id'])
+                                    }};
+
+                                    var c_id={{
+                                        Js::from($dtt['id'])
+                                    }};
+
+                                    var ell={{
+                                        Js::from($ackid);
+                                    }};
+
+                                    var ell="."+ell;
+
+                                    if(p_id==c_id){
+                                        
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Previleged");
+                                        document.querySelectorAll(ell).forEach(el=>el.disabled=true);
+                                        
+                                    }
+                                    else if(p_id!=0 && p_id!=c_id){
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Make Admin");
+                                        document.querySelectorAll(ell).forEach(el=>el.disabled=true);
+                                    }
+                                    if(p_id==0){
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Make Admin");
+                                    }
+                                    console.log(p_id,c_id);
+                                 </script>
+
+
+566 no. line----> (under line of onclick) -- > <u class='<?php echo $aid; ?>' style="font-size:20px;" onclick='mdl("<?php echo $aid;?>",<?php echo $dtt["user_id"];?>,<?php echo $dtt["id"];?>,<?php echo $dtt["prev_id"];?>)'>{{$dtt["user_name"]}}</u>
+
+627 no. line ---> @php 
+                                    $ackid="bt".$dtt['user_id'].$dtt['id'];
+                                 @endphp
+                                 <td> <button class="btn btn-primary p-3 <?php echo $ackid; ?>" onclick="mk_adm('<?php echo $ackid;?>',<?php echo $dtt['u_id'];?>,'<?php echo $dtt['catagory_name'];?>',<?php echo $dtt['id'];?>)"> Make Admin </button></td>  
+                                 <script>
+                                    var p_id={{
+                                        Js::from($dtt['prev_id']);
+                                    }};
+                                    
+                                    var c_id={{
+                                        Js::from($dtt['id']);
+                                    }};
+                                        
+                                    var ell={{
+                                        Js::from($ackid);
+                                    }};
+
+                                    var ell="."+ell;
+
+                                    if(p_id==c_id){
+                                        
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Previleged");
+                                        document.querySelectorAll(ell).forEach(el=>el.disabled=true);
+                                        
+                                    }
+                                    else if(p_id!=0 && p_id!=c_id){
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Make Admin");
+                                        document.querySelectorAll(ell).forEach(el=>el.disabled=true);
+                                    }
+                                    if(p_id==0){
+                                        document.querySelectorAll(ell).forEach(el=>el.innerText="Make Admin");
+                                    }
+                                    // console.log(p_id,c_id);
+                                 </script>
