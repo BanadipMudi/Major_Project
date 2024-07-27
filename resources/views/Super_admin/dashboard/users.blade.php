@@ -88,7 +88,7 @@ td.answer2 {
 }
 
                 </style>
-                <a class="navbar-brand brand-logo me-5" href="index.html"><img src="{{ asset('images/logo.png') }}" class="me-2" alt="logo" height="400px" width="60px"/></a>
+                <a class="navbar-brand brand-logo me-5" href="/template"><img src="{{ asset('images/logo.png') }}" class="me-2" alt="logo" height="400px" width="60px"/></a>
                 
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
