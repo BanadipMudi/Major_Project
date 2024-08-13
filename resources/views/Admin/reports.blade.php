@@ -316,6 +316,7 @@
                                                                                 data-ans="{{ $record->answer_id }}"
                                                                                 data-rep="{{ $record->reporting_user_id }}"
                                                                                 data-email="{{ $record->reason }}"
+                                                                               
                                                                                 class="link-info btn btn-primary py-1 action-btn text-white"
                                                                                 style="font-size: 18px;"
                                                                                 data-bs-toggle="modal"
@@ -590,7 +591,7 @@
             $('#report-ans').val(rep);
             $('#report-id').val(rid);
             $('#aw-id').val(ans);
-          
+        //   console.log(myLink,email,ans,rid,rep);
                  
 
             $.ajax({

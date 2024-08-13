@@ -43,7 +43,7 @@ class notificationManage extends Controller
     }
 
     public function see_take_action($rid,$nid){
-        $action=Report::where('u_id',$rid)->first();
+        $action=Report::where('r_id',$rid)->first();
         $notification=Notification::where('id',$nid)->select('message')->first();
         $answers=Answer::where('id',$action->answer_id)->
         with(['question.Newuser' => function ($query) {

@@ -57,6 +57,7 @@ function rvk_func($id){
           'title'=>'Mail from AnswerBag Super Admin',
           'body'=>"Sorry!! Your account has been removed due to unusual activities."];
      Mail::to($data->email)->send(new SendMail($mailData));
+    
 }
 
 function chng_bann($id){

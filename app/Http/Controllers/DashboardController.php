@@ -104,6 +104,14 @@ class DashboardController extends Controller
         $repo->save();
         $approve = "Your Report is Approved";
         $deleted="Your Answer is Deleted";
+        $admin_id = session('admin_id');
+
+       
+        
+        // Query the admins table to get the email
+        $admin = DB::table('admins')->where('a_id', $admin_id)->first();
+        $email = $admin ? $admin->email : null;
+    
      //  echo $mail.$mail2.$answ.$reason.$username.$rep.$aw_id.$report_id;
         $target_id = DB::table('answers')
         ->where('id', $aw_id)
@@ -121,7 +129,7 @@ class DashboardController extends Controller
         DB::table('notifications')->insert(['user_id' => $target_id, 'message' => $deleted, 'action_id' => $report_id, 'action' => "report_target_user", 'created_at' => now(), 
         'updated_at' => now(),]);
       echo $mail;
-        Mail::to("nancynandani241999@gmail.com")->send(new Gmail($mail, $mail2, $answ, $reason, $username));
+        Mail::to($email)->send(new Gmail($mail, $mail2, $answ, $reason, $username));
         return back();
        
         

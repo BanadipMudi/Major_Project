@@ -458,7 +458,7 @@
                     <td class="text-center">{{$data->a_id}}</td>
                     <td class="text-center">{{$data->admin_name}}</td>
                     <td class="text-center">{{$data->email}}</td>
-                    @if($data->last_active==NULL)
+                    @if($data->last_active==null)
                     <td class="text-center">---</td>
                     @else
                     <td class="text-center">{{$data->last_active}}</td>

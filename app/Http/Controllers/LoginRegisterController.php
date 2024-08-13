@@ -98,7 +98,12 @@ class LoginRegisterController extends Controller
 
 
         $admin=admin::where('email',$request->email)->first();
-       
+       if(!$admin){
+        return back()->withErrors([
+            'email' => 'You are revoked as admin bro',
+        ])->onlyInput('email');
+       }
+
         $admin_catagory_id=$admin->category_id;
         $request->session()->put('admin_catagory_id', $admin_catagory_id);
         $get_catagory_name=Catagory::where('id',$admin_catagory_id)->value('catagory_name');
@@ -155,11 +160,13 @@ class LoginRegisterController extends Controller
       $id=$request->session()->get('admin_id');
       $data=Admin::find($id);
      // return $data;
+     if($data){
      $dd=Carbon::now()->format('Y-m-d');
      $d=$dd;
      //echo ($dd);
      $data->last_active=$d;
      $data->save();
+     }
      $request->session()->forget('admin_id');
         return redirect()->route('dashboard2')
             ->withSuccess('You have logged out successfully!');;

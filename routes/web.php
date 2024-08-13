@@ -144,9 +144,9 @@ Route::get('/user/seetakeaction/{rid}/{nid}',[notificationManage::class,'see_tak
 
 // ADMIN............. 
 // Route::view('/admin/dashboard','Admin.dashboard');
- Route::view('/admin/login','Admin.login');
+//  Route::view('/admin/login','Admin.login');
 // Route::view('/admin/choice','Admin.choice');
-Route::view('/admin/setting','Admin.setting');
+Route::view('/admin/setting','admin.setting');
 // Route::view('/admin/questions','Admin.questions');
 // Route::view('/admin/reports','Admin.reports');
 // Route::view('/admin/answers','Admin.answer');

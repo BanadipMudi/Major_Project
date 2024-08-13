@@ -59,6 +59,9 @@
     min-width: 160px;
     max-width: 160px;
 }
+.cmn{
+    margin:0 auto;
+}
     </style>
 </head>
 
@@ -515,6 +518,7 @@ td.answer2 {
                         
                       
                         <div class="col-md-12 grid-margin">
+                        <h3 style="background-color:green; color:white; text-align:center; padding:20px; width:auto">Number of Questions And Answers Asked By Users</h3>
                             <table class="table table-dark" id="usrid">
                                 <thead>
                                   <tr>
@@ -612,9 +616,9 @@ td.answer2 {
                                 </tbody>
                               </table>
 
-                              <div class="col-md-12 grid-margin mt-3">
-                                    <h3 style="background-color:green; color:white; text-align:center; padding:20px; width:auto;">Number of Questions And Answers Asked By Each User</h3>
-                              <table  class="table table-responsive table-dark">
+                              <div class="grid-margin mt-3">
+                                    <h3 style="background-color:green; color:white; text-align:center; padding:20px; width:auto">List Of All Users</h3>
+                              <table class="table col-md-12  table-dark">
                               <thead>
                             <tr>
                             <th scope="col" class="text-center">user id</th>
@@ -637,57 +641,57 @@ td.answer2 {
 
                                     @if($dtk['prvid'] == "0")
 
-                                    <button data-mail="{{ $dtk['eml'] }}" data-cid="1" value="{{ $dtk['id'] }}" id="Science" class="btn btn-primary text-center d-block mt-4 common-class mudi">
+                                    <button data-mail="{{ $dtk['eml'] }}" data-cid="1" value="{{ $dtk['id'] }}" id="Science" class="btn btn-primary text-center d-block mt-4 common-class mudi cmn">
                                 Make Admin
                             </button>
                     @elseif($dtk['prvid'] == "1")                                                                   
-    <button data-mail="{{ $dtk['eml'] }}" disabled data-cid="1" value="{{ $dtk['id'] }}" id="Science" class="btn btn-primary text-center d-block mt-4 common-class btn-success">
+    <button data-mail="{{ $dtk['eml'] }}" disabled data-cid="1" value="{{ $dtk['id'] }}" id="Science" class="btn btn-primary text-center d-block mt-4 common-class btn-success cmn">
         Privileged
     </button>
     @else
-    <button data-mail="{{ $dtk['eml'] }}" disabled data-cid="1" value="{{ $dtk['id'] }}" id="Science" class="btn btn-primary text-center d-block mt-4 common-class mudi">
+    <button data-mail="{{ $dtk['eml'] }}" disabled data-cid="1" value="{{ $dtk['id'] }}" id="Science" class="btn btn-primary text-center d-block mt-4 common-class mudi cmn">
         Make Admin
     </button>
 @endif
                                     </td>
                                     <td class="text-center" style="font-size:20px;">{{$dtk['num2']}}
                                     @if($dtk['prvid'] == "0")
-                                    <button data-mail="{{$dtk['eml']}}" data-cid="2" value="{{$dtk['id']}}" id="Trending"  class="btn btn-primary text-center d-block mt-4 common-class"> Make Admin </button>
+                                    <button data-mail="{{$dtk['eml']}}" data-cid="2" value="{{$dtk['id']}}" id="Trending"  class="btn btn-primary text-center d-block mt-4 common-class cmn"> Make Admin </button>
                                     @elseif($dtk['prvid'] == "2") 
-                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="2" value="{{$dtk['id']}}" id="Trending"  class="btn btn-primary text-center d-block mt-4 common-class btn-success"> Privileged </button>
+                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="2" value="{{$dtk['id']}}" id="Trending"  class="btn btn-primary text-center d-block mt-4 common-class btn-success cmn"> Privileged </button>
                                     @else
-                                    <button data-mail="{{ $dtk['eml'] }}" disabled data-cid="2" value="{{ $dtk['id'] }}" id="Trending" class="btn btn-primary text-center d-block mt-4 common-class mudi">
+                                    <button data-mail="{{ $dtk['eml'] }}" disabled data-cid="2" value="{{ $dtk['id'] }}" id="Trending" class="btn btn-primary text-center d-block mt-4 common-class mudi cmn">
                                     Make Admin 
                                     @endif
                                     </td>
                                     <td class="text-center" style="font-size:20px;">{{$dtk['num3']}}
                                     @if($dtk['prvid'] == "0")
-                                    <button data-mail="{{$dtk['eml']}}" data-cid="3" value=<?php echo $dtk['id'];?> id="Sports" class="btn btn-primary text-center d-block mt-4 common-class"> Make Admin </button>
+                                    <button data-mail="{{$dtk['eml']}}" data-cid="3" value=<?php echo $dtk['id'];?> id="Sports" class="btn btn-primary text-center d-block mt-4 common-class cmn"> Make Admin </button>
                                     @elseif($dtk['prvid'] == "3")
-                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="3" value=<?php echo $dtk['id'];?> id="Sports" class="btn btn-primary text-center d-block mt-4 common-class btn-success"> Privileged </button>
+                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="3" value=<?php echo $dtk['id'];?> id="Sports" class="btn btn-primary text-center d-block mt-4 common-class btn-success cmn"> Privileged </button>
                                     @else
-                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="3" value=<?php echo $dtk['id'];?> id="Sports" class="btn btn-primary text-center d-block mt-4 common-class">Make Admin </button>
+                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="3" value=<?php echo $dtk['id'];?> id="Sports" class="btn btn-primary text-center d-block mt-4 common-class cmn">Make Admin </button>
                                     @endif
                                     </td>
                                     <td class="text-center" style="font-size:20px;">{{$dtk['num4']}}
                                     @if($dtk['prvid'] == "0")
-                                    <button data-mail="{{$dtk['eml']}}" data-cid="4" value="{{$dtk['id']}}" id="Programming" class="btn btn-primary text-center d-block mt-4 common-class"> Make Admin </button>
+                                    <button data-mail="{{$dtk['eml']}}" data-cid="4" value="{{$dtk['id']}}" id="Programming" class="btn btn-primary text-center d-block mt-4 common-class cmn"> Make Admin </button>
                                     @elseif($dtk['prvid'] == "4")
                                    
-                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="4" value="{{$dtk['id']}}" id="Programming" class="btn btn-primary text-center d-block mt-4 common-class btn-success"> Privileged </button>
+                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="4" value="{{$dtk['id']}}" id="Programming" class="btn btn-primary text-center d-block mt-4 common-class btn-success cmn"> Privileged </button>
                                      @else
                                     
-                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="4" value="{{$dtk['id']}}" id="Programming" class="btn btn-primary text-center d-block mt-4 common-class"> Make Admin  </button>
+                                    <button data-mail="{{$dtk['eml']}}" disabled data-cid="4" value="{{$dtk['id']}}" id="Programming" class="btn btn-primary text-center d-block mt-4 common-class cmn"> Make Admin  </button>
                                     @endif
                                      </td>
                                     
                                      <td class="text-center" style="font-size:20px;">{{$dtk['num6']}}
                                      @if($dtk['prvid'] == "0")
-                                     <button data-mail="{{$dtk['eml']}}" data-cid="6" value="{{$dtk['id']}}" id="Technology" class="btn btn-primary text-center d-block mt-4 common-class"> Make Admin </button>
+                                     <button data-mail="{{$dtk['eml']}}" data-cid="6" value="{{$dtk['id']}}" id="Technology" class="btn btn-primary text-center d-block mt-4 common-class cmn"> Make Admin </button>
                                      @elseif($dtk['prvid'] == "6")
-                                     <button data-mail="{{$dtk['eml']}}" disabled data-cid="6" value="{{$dtk['id']}}" id="Technology" class="btn btn-primary text-center d-block mt-4 common-class btn-success"> Privileged </button>
+                                     <button data-mail="{{$dtk['eml']}}" disabled data-cid="6" value="{{$dtk['id']}}" id="Technology" class="btn btn-primary text-center d-block mt-4 common-class btn-success cmn"> Privileged </button>
                                      @else
-                                     <button data-mail="{{$dtk['eml']}}" disabled data-cid="6" value="{{$dtk['id']}}" id="Technology" class="btn btn-primary text-center d-block mt-4 common-class"> Make Admin </button>
+                                     <button data-mail="{{$dtk['eml']}}" disabled data-cid="6" value="{{$dtk['id']}}" id="Technology" class="btn btn-primary text-center d-block mt-4 common-class cmn"> Make Admin </button>
                                     @endif
                                      </td>
                                     <td class="text-center" style="font-size:20px;">{{$dtk['num7']}}</td>
